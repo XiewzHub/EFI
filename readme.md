@@ -5,13 +5,13 @@
 > CPU：Intel（R） Core(TM) i7-8750H CPU @ 2.2GHz
 >
 > 显卡： 
->     1 Intel(R) UHD Graphics 630 1G，
+>     1 Intel(R) UHD Graphics 630 1G，  
 >     2 NVIDIA GeForce GTX 1060 6G
 >
-> 声卡：Realtek High Definition Audio
+> 声卡：Realtek High Definition Audio  
 >
 > 网卡：
->     1 品牌 Realtek Semiconductor Corp，名称 Realtek 8822BE Wireless LAN 802.11ac PCI-E NIC
+>     1 品牌 Realtek Semiconductor Corp，名称 Realtek 8822BE Wireless LAN 802.11ac PCI-E NIC    
 >     2 品牌 Realtek ， 名称 Realtek PCIe GbE Family Controller
 >
 > 主硬盘：名称 RPFTJ128PDD2EWX ，接口类型 PCI-E ，119GB
@@ -23,6 +23,13 @@
   macOS High Sierra 10.13.6(17G2112) Installer with Clover 4606[点击下载](https://mirrors.dtops.cc/iso/MacOS/daliansky_macos/macOS%20High%20Sierra%2010.13.6%2817G2112%29%20Installer%20with%20Clover%204606.dmg)
 
   参考文章[链接地址](https://blog.daliansky.net/macOS-High-Sierra-10.13.6-17G2112-Release-Special-with-Clover-4606-original-mirror.html)
+
+- 推荐网址
+
+  + [国外论坛tonymacx86](www.tonymacx86.com)
+  + [安装系统参考网址](https://osx.cx/macos-high-sierra-10-13-xhackintosh-installation-tutorial.html)
+  + [大神整理的各种机型的EFI](https://github.com/sqlsec/clover)
+  + [关于Clover里的 .plist 文件配置说明](https://clover-wiki.zetam.org/zh-CN/Configuration#Config.plist-%E7%BB%93%E6%9E%84)
 
 ### 核显Uhd630没有识别
 
@@ -50,6 +57,8 @@
     [原文链接](https://www.tonymacx86.com/threads/help-black-screen-when-uhd630-run-with-internal-screen.250577/page-5#post-1762999)
 
   + 回答2
+
+    [参考链接](https://blog.daliansky.net/macOS-10.13-installation-of-common-problems-and-solutions.html?utm_source=com.tencent.tim&utm_medium=social&utm_oi=859884932347080704&tdsourcetag=s_pctim_aiomsg)
 
     软件设置如下：
 
