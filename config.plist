@@ -16,8 +16,10 @@
 			<dict>
 				<key>Comment-IRQ Fix</key>
 				<string>The following fixes may be needed for onboard audio/USB/etc</string>
-				<key>FixHPET</key>
+				<key>FixHDA</key>
 				<false/>
+				<key>FixHPET</key>
+				<true/>
 				<key>FixIPIC</key>
 				<false/>
 				<key>FixRTC</key>
@@ -246,7 +248,7 @@
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
-		<integer>5</integer>
+		<integer>4</integer>
 	</dict>
 	<key>Comment</key>
 	<string>This file is for 10.12.6+ with native KabyLake support</string>
@@ -303,7 +305,7 @@
 		<key>Audio</key>
 		<dict>
 			<key>Inject</key>
-			<integer>3</integer>
+			<integer>15</integer>
 		</dict>
 		<key>FakeID</key>
 		<dict>
@@ -601,8 +603,10 @@
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
+		<key>BacklightLevel</key>
+		<string>0xaaaa</string>
 		<key>InjectKexts</key>
-		<string>Detect</string>
+		<string>Yes</string>
 	</dict>
 </dict>
 </plist>
