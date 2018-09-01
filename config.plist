@@ -242,9 +242,11 @@
 		<key>#DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>Arguments</key>
-		<string>dart=0 nv_disable=1 kext-dev-mode=1 debug=0x100 -alcoff -disablegfxfirmware</string>
-		<key>NeverHibernate</key>
+		<string>dart=0 kext-dev-mode=1 debug=0x100 -alcoff -disablegfxfirmware</string>
+		<key>HibernationFixup</key>
 		<true/>
+		<key>NeverHibernate</key>
+		<false/>
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
@@ -607,6 +609,10 @@
 		<string>0xaaaa</string>
 		<key>InjectKexts</key>
 		<string>Yes</string>
+		<key>InjectSystemID</key>
+		<true/>
+		<key>NvidiaWeb</key>
+		<true/>
 	</dict>
 </dict>
 </plist>
