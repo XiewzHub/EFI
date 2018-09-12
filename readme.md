@@ -8,11 +8,11 @@
 >     1 Intel(R) UHD Graphics 630 1G，  
 >     2 NVIDIA GeForce GTX 1060 6G
 >
-> 声卡：Realtek High Definition Audio  
+> 声卡：Realtek ALC236 @ Intel Cannon Lake PCH - cAVS (Audio, Voice, Speech)	 
 >
 > 网卡：
->     1 品牌 Realtek Semiconductor Corp，名称 Realtek 8822BE Wireless LAN 802.11ac PCI-E NIC    
->     2 品牌 Realtek ， 名称 Realtek PCIe GbE Family Controller
+>     1 品牌 Realtek Semiconductor Corp，名称 Realtek RTL8822BE Wireless LAN 802.11ac PCI-E Network Adapter	PCI    
+>     2 品牌 Realtek ， 名称 Realtek RTL8168/8111 PCI-E Gigabit Ethernet Adapter	PCI
 >
 > 主硬盘：名称 RPFTJ128PDD2EWX ，接口类型 PCI-E ，119GB
 >
@@ -91,5 +91,3 @@
         </data>
     </dict>
     ```
-
-    
