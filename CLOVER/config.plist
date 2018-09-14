@@ -2,28 +2,93 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>#Comment</key>
+	<string>This file is for 10.12.6+ with native KabyLake support</string>
 	<key>ACPI</key>
 	<dict>
-		<key>AutoMerge</key>
-		<true/>
-		<key>Comment-DisabledAML</key>
-		<string>Disable other forms of CPU PM due to SSDT/Generate/PluginType=true</string>
+		<key>#Comment-SortedOrder</key>
+		<string>SortedOrder required if you have patched SSDTs in ACPI/patched</string>
+		<key>#DropTables</key>
+		<array>
+			<dict>
+				<key>Signature</key>
+				<string>MCFG</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>DMAR</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>xh_rvp10</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>CpuPm</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>Cpu0Cst</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>Cpu0Ist</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>ApCst</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>ApIst</string>
+			</dict>
+		</array>
+		<key>#SortedOrder</key>
+		<array>
+			<string>SSDT.aml</string>
+			<string>SSDT-0.aml</string>
+			<string>SSDT-1.aml</string>
+			<string>SSDT-2.aml</string>
+			<string>SSDT-3.aml</string>
+			<string>SSDT-4.aml</string>
+			<string>SSDT-5.aml</string>
+			<string>SSDT-6.aml</string>
+			<string>SSDT-7.aml</string>
+			<string>SSDT-8.aml</string>
+			<string>SSDT-9.aml</string>
+			<string>SSDT-10.aml</string>
+			<string>SSDT-11.aml</string>
+			<string>SSDT-12.aml</string>
+			<string>SSDT-13.aml</string>
+			<string>SSDT-14.aml</string>
+			<string>SSDT-15.aml</string>
+			<string>SSDT-16.aml</string>
+			<string>SSDT-17.aml</string>
+			<string>SSDT-18.aml</string>
+			<string>SSDT-19.aml</string>
+			<string>SSDT-XOSI.aml</string>
+			<string>SSDT-LPC.aml</string>
+			<string>SSDT-UIAC.aml</string>
+			<string>SSDT-PNLF.aml</string>
+		</array>
 		<key>DSDT</key>
 		<dict>
-			<key>DropOEM_DSM</key>
-			<false/>
 			<key>Fixes</key>
 			<dict>
-				<key>Comment-IRQ Fix</key>
+				<key>#Comment-IRQ Fix</key>
 				<string>The following fixes may be needed for onboard audio/USB/etc</string>
-				<key>FixHPET</key>
-				<false/>
-				<key>FixIPIC</key>
-				<false/>
-				<key>FixRTC</key>
-				<false/>
-				<key>FixTMR</key>
-				<false/>
 			</dict>
 			<key>Patches</key>
 			<array>
@@ -197,12 +262,6 @@
 				</dict>
 			</array>
 		</dict>
-		<key>DisabledAML</key>
-		<array>
-			<string>SSDT.aml</string>
-			<string>SSDT-XCPM.aml</string>
-			<string>SSDT-PluginType1.aml</string>
-		</array>
 		<key>DropTables</key>
 		<array>
 			<dict>
@@ -213,12 +272,6 @@
 				<key>Signature</key>
 				<string>DMAR</string>
 			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>xh_rvp10</string>
-			</dict>
 		</array>
 		<key>FixHeaders</key>
 		<true/>
@@ -228,28 +281,43 @@
 			<false/>
 			<key>Generate</key>
 			<dict>
-				<key>PluginType</key>
-				<true/>
+				<key>CStates</key>
+				<false/>
+				<key>PStates</key>
+				<false/>
 			</dict>
-			<key>NoOemTableId</key>
-			<false/>
+			<key>PluginType</key>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>Boot</key>
 	<dict>
-		<key>#DefaultVolume</key>
-		<string>LastBootedVolume</string>
 		<key>Arguments</key>
-		<string>-v dart=0 nv_disable=1 kext-dev-mode=1 debug=0x100 -alcoff -disablegfxfirmware</string>
+		<string>-lilubetaall debug=0x100 -disablegfxfirmware -v darkwake=8</string>
+		<key>CustomLogo</key>
+		<string>Apple</string>
+		<key>DefaultVolume</key>
+		<string>LastBootedVolume</string>
+		<key>Legacy</key>
+		<string>LegacyBiosDefault</string>
+		<key>Log</key>
+		<false/>
 		<key>NeverHibernate</key>
+		<true/>
+		<key>NoEarlyProgress</key>
 		<true/>
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
 		<integer>5</integer>
+		<key>XMPDetection</key>
+		<string>Yes</string>
 	</dict>
-	<key>Comment</key>
-	<string>This file is for 10.12.6+ with native KabyLake support</string>
+	<key>CPU</key>
+	<dict>
+		<key>UseARTFrequency</key>
+		<false/>
+	</dict>
 	<key>Devices</key>
 	<dict>
 		<key>#AddProperties</key>
@@ -309,8 +377,6 @@
 		<dict>
 			<key>#Kaby Lake-Comment</key>
 			<string>To avoid automatic Clover fake device-id (Skylake) injection</string>
-			<key>IntelGFX</key>
-			<string>0x59168086</string>
 		</dict>
 		<key>USB</key>
 		<dict>
@@ -322,12 +388,8 @@
 			<true/>
 		</dict>
 		<key>UseIntelHDMI</key>
-		<false/>
+		<true/>
 	</dict>
-	<key>DisableDrivers</key>
-	<array>
-		<string>VBoxHfs</string>
-	</array>
 	<key>GUI</key>
 	<dict>
 		<key>#ScreenResolution</key>
@@ -339,31 +401,19 @@
 				<dict>
 					<key>Disabled</key>
 					<false/>
+					<key>FullTitle</key>
+					<string>UEFI internal</string>
 					<key>Hidden</key>
-					<false/>
+					<string>Always</string>
 					<key>Ignore</key>
 					<false/>
 					<key>NoCaches</key>
 					<false/>
 					<key>Type</key>
-					<string>OSXRecovery</string>
-				</dict>
-				<dict>
-					<key>Disabled</key>
-					<false/>
-					<key>Ignore</key>
-					<false/>
-					<key>Title</key>
-					<string>Windows</string>
-					<key>Type</key>
-					<string>Windows</string>
+					<string>Other</string>
 				</dict>
 			</array>
 		</dict>
-		<key>Hide</key>
-		<array>
-			<string>Preboot</string>
-		</array>
 		<key>Mouse</key>
 		<dict>
 			<key>Enabled</key>
@@ -374,11 +424,11 @@
 			<key>Entries</key>
 			<true/>
 			<key>Legacy</key>
-			<false/>
+			<true/>
 			<key>Linux</key>
-			<false/>
+			<true/>
 			<key>Tool</key>
-			<false/>
+			<true/>
 		</dict>
 		<key>Theme</key>
 		<string>SimpleThemeDark</string>
@@ -400,10 +450,12 @@
 			<false/>
 		</dict>
 		<key>ig-platform-id</key>
-		<string>0x591b0000</string>
+		<string>0x12345678</string>
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
+		<key>AppleIntelCPUPM</key>
+		<true/>
 		<key>AppleRTC</key>
 		<true/>
 		<key>DellSMBIOSPatch</key>
@@ -411,28 +463,13 @@
 		<key>ForceKextsToLoad</key>
 		<array>
 			<string>\System\Library\Extensions\IONetworkingFamily.kext</string>
-			<string>\System\Library\Extensions\AppleIntelKBLGraphicsFramebuffer.kext</string>
 		</array>
 		<key>KernelLapic</key>
-		<false/>
+		<true/>
 		<key>KernelPm</key>
-		<false/>
+		<true/>
 		<key>KernelToPatch</key>
 		<array>
-			<dict>
-				<key>Comment</key>
-				<string>MSR 0xE2 _xcpm_idle instant reboot(c) Pike R. Alpha</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				ILniAAAADzA=
-				</data>
-				<key>Replace</key>
-				<data>
-				ILniAAAAkJA=
-				</data>
-			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>Disable panic kext logging on 10.13 Debug kernel</string>
@@ -467,16 +504,32 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
+				<string>Disable panic kext logging on 10.14 Release kernel (c) vit9696</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
 				<data>
-				AAAIAAIAAACYAAAA
+				igKEwHRC
+				</data>
+				<key>MatchOS</key>
+				<string>10.14.x</string>
+				<key>Replace</key>
+				<data>
+				igKEwOtC
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>MSR 0xE2 _xcpm_idle instant reboot(c) Pike R. Alpha</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				ILniAAAADzA=
 				</data>
 				<key>Replace</key>
 				<data>
-				AAAIAAIAAACHAQAA
+				ILniAAAAkJA=
 				</data>
 			</dict>
 		</array>
@@ -484,98 +537,62 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>0x591b0000, 32MB BIOS, 19MB framebuffer 9MB cursor bytes (credit RehabMan)</string>
+				<string>10.13.x USB Port Limit Patch</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
 				<data>
-				AABgAgAAUAE=
+				g32UDw+DlwQAAA==
 				</data>
 				<key>InfoPlistPatch</key>
 				<false/>
+				<key>MatchOS</key>
+				<string>10.13.x</string>
 				<key>Name</key>
-				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
+				<string>com.apple.driver.usb.AppleUSBXHCI</string>
 				<key>Replace</key>
 				<data>
-				AAAwAQAAkAA=
+				g32UGpCQkJCQkA==
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>0x591b0000, 0105 instead of 0306, HDMI</string>
+				<string>change 15 port limit to 26 in XHCI kext for 10.14 beta2</string>
 				<key>Disabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
-				AgQKAAAIAACHAQAAAwYKAAAEAACHAQAA/wAAAAEAAAAg
-				AAAA
+				g/sPD4MDBQA=
 				</data>
 				<key>InfoPlistPatch</key>
 				<false/>
+				<key>MatchOS</key>
+				<string>10.14,10.14.x</string>
 				<key>Name</key>
-				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
+				<string>com.apple.driver.usb.AppleUSBXHCI</string>
 				<key>Replace</key>
 				<data>
-				AQUKAAAIAACHAQAAAgQKAAAIAACHAQAA/wAAAAEAAAAg
-				AAAA
+				g/saD4MDBQA=
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>0x591b0000, 0105 instead of 0204, HDMI</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AgQKAAAIAACHAQAAAwYKAAAEAACHAQAA/wAAAAEAAAAg
-				AAAA
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				AQUKAAAIAACHAQAAAwYKAAAEAACHAQAA/wAAAAEAAAAg
-				AAAA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>0x591b0000, eliminate all external ports (0204 and 0306)</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AgQKAAAIAACHAQAAAwYKAAAEAACHAQAA/wAAAAEAAAAg
-				AAAA
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				/wAAAAEAAAAgAAAA/wAAAAEAAAAgAAAA/wAAAAEAAAAg
-				AAAA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>8750h黑屏补丁</string>
+				<string>disable USB Port Limit Patch (PMheart) for 10.14 beta2</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
 				<data>
-				AAAIAAIAAACYAAAA
+				g/sPD4MDBQAA
 				</data>
 				<key>InfoPlistPatch</key>
 				<false/>
+				<key>MatchOS</key>
+				<string>10.14,10.14.x</string>
 				<key>Name</key>
-				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
+				<string>com.apple.driver.usb.AppleUSBXHCI</string>
 				<key>Replace</key>
 				<data>
-				AAAIAAIAAACHAQAA
+				g/sPkJCQkJCQ
 				</data>
 			</dict>
 		</array>
@@ -590,14 +607,20 @@
 	<key>SMBIOS</key>
 	<dict>
 		<key>ProductName</key>
-		<string>MacBookPro14,1</string>
+		<string>MacBookAir6,2</string>
+		<key>ProductName-Comment</key>
+		<string>Using Haswell MacBookAir6,2 until Clover has support for KabyLake identifiers</string>
 		<key>Trust</key>
 		<true/>
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
+		<key>#BacklightLevel</key>
+		<integer>0</integer>
 		<key>InjectKexts</key>
 		<string>Detect</string>
+		<key>InjectSystemID</key>
+		<true/>
 	</dict>
 </dict>
 </plist>
