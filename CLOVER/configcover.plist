@@ -449,6 +449,8 @@
 			<key>NVidia</key>
 			<false/>
 		</dict>
+		<key>ig-platform-id</key>
+		<string>0x12345678</string>
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
@@ -535,6 +537,26 @@
 		<array>
 			<dict>
 				<key>Comment</key>
+				<string>10.13.x USB Port Limit Patch</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				g32UDw+DlwQAAA==
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>MatchOS</key>
+				<string>10.13.x</string>
+				<key>Name</key>
+				<string>com.apple.driver.usb.AppleUSBXHCI</string>
+				<key>Replace</key>
+				<data>
+				g32UGpCQkJCQkA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>change 15 port limit to 26 in XHCI kext for 10.14 beta2</string>
 				<key>Disabled</key>
 				<false/>
@@ -573,26 +595,6 @@
 				g/sPkJCQkJCQ
 				</data>
 			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>DVMT for AppleIntelCFLGraphicsFramebuffer﻿ (Credits DalianSky) for 10.14 beta10</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				dkBI/wVi9Ac=
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>MatchOS</key>
-				<string>10.14.x</string>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelCFLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				60BI/wVi9Ac=
-				</data>
-			</dict>
 		</array>
 	</dict>
 	<key>RtVariables</key>
@@ -604,10 +606,8 @@
 	</dict>
 	<key>SMBIOS</key>
 	<dict>
-		<key>Mobile</key>
-		<true/>
 		<key>ProductName</key>
-		<string>MacBookPro15,2</string>
+		<string>MacBookAir6,2</string>
 		<key>ProductName-Comment</key>
 		<string>Using Haswell MacBookAir6,2 until Clover has support for KabyLake identifiers</string>
 		<key>Trust</key>
