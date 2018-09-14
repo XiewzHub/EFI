@@ -14,15 +14,23 @@
 			<false/>
 			<key>Fixes</key>
 			<dict>
+				<key>AddPNLF</key>
+				<false/>
 				<key>Comment-IRQ Fix</key>
 				<string>The following fixes may be needed for onboard audio/USB/etc</string>
-				<key>FixHPET</key>
+				<key>FixDisplay</key>
 				<false/>
+				<key>FixHDA</key>
+				<false/>
+				<key>FixHPET</key>
+				<true/>
 				<key>FixIPIC</key>
 				<false/>
 				<key>FixRTC</key>
 				<false/>
 				<key>FixTMR</key>
+				<false/>
+				<key>FixUSB</key>
 				<false/>
 			</dict>
 			<key>Patches</key>
@@ -157,7 +165,7 @@
 					<key>Comment</key>
 					<string>change GFX0 to IGPU</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>
 					R0ZYMA==
@@ -171,7 +179,7 @@
 					<key>Comment</key>
 					<string>change PCI0.VID to IGPU #1 (Thinkpad)</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>
 					UENJMFZJRF8=
@@ -185,7 +193,7 @@
 					<key>Comment</key>
 					<string>change PCI0.VID to IGPU #2 (Thinkpad)</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>
 					VklEXwhfQURSDAAAAgA=
@@ -197,12 +205,6 @@
 				</dict>
 			</array>
 		</dict>
-		<key>DisabledAML</key>
-		<array>
-			<string>SSDT.aml</string>
-			<string>SSDT-XCPM.aml</string>
-			<string>SSDT-PluginType1.aml</string>
-		</array>
 		<key>DropTables</key>
 		<array>
 			<dict>
@@ -240,13 +242,32 @@
 		<key>#DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>Arguments</key>
-		<string>dart=0 nv_disable=1 kext-dev-mode=1 debug=0x100 -alcoff -disablegfxfirmware</string>
+		<string>debug=0x100 -lilubetaall -v -igfxbeta</string>
+		<key>HibernationFixup</key>
+		<false/>
 		<key>NeverHibernate</key>
-		<true/>
+		<false/>
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
 		<integer>4</integer>
+	</dict>
+	<key>CPU</key>
+	<dict>
+		<key>BusSpeedkHz</key>
+		<integer>98760</integer>
+		<key>C6</key>
+		<true/>
+		<key>FrequencyMHz</key>
+		<integer>2200</integer>
+		<key>HWPEnable</key>
+		<true/>
+		<key>QPI</key>
+		<integer>80000</integer>
+		<key>TDP</key>
+		<integer>45</integer>
+		<key>UseARTFrequency</key>
+		<true/>
 	</dict>
 	<key>Comment</key>
 	<string>This file is for 10.12.6+ with native KabyLake support</string>
@@ -303,7 +324,9 @@
 		<key>Audio</key>
 		<dict>
 			<key>Inject</key>
-			<string>15</string>
+			<integer>3</integer>
+			<key>ResetHDA</key>
+			<true/>
 		</dict>
 		<key>FakeID</key>
 		<dict>
@@ -311,12 +334,16 @@
 			<string>To avoid automatic Clover fake device-id (Skylake) injection</string>
 			<key>IntelGFX</key>
 			<string>0x59168086</string>
+			<key>NVidia</key>
+			<string>0x59120003</string>
 		</dict>
 		<key>USB</key>
 		<dict>
 			<key>AddClockID</key>
 			<true/>
 			<key>FixOwnership</key>
+			<true/>
+			<key>HighCurrent</key>
 			<true/>
 			<key>Inject</key>
 			<true/>
@@ -332,43 +359,19 @@
 	<dict>
 		<key>#ScreenResolution</key>
 		<string>1920x1080</string>
-		<key>Custom</key>
-		<dict>
-			<key>Entries</key>
-			<array>
-				<dict>
-					<key>Disabled</key>
-					<false/>
-					<key>Hidden</key>
-					<false/>
-					<key>Ignore</key>
-					<false/>
-					<key>NoCaches</key>
-					<false/>
-					<key>Type</key>
-					<string>OSXRecovery</string>
-				</dict>
-				<dict>
-					<key>Disabled</key>
-					<false/>
-					<key>Ignore</key>
-					<false/>
-					<key>Title</key>
-					<string>Windows</string>
-					<key>Type</key>
-					<string>Windows</string>
-				</dict>
-			</array>
-		</dict>
 		<key>Hide</key>
 		<array>
 			<string>Preboot</string>
 			<string>Recovery</string>
 		</array>
+		<key>Language</key>
+		<string>en:0</string>
 		<key>Mouse</key>
 		<dict>
-			<key>Enabled</key>
-			<false/>
+			<key>DoubleClick</key>
+			<integer>500</integer>
+			<key>Speed</key>
+			<integer>8</integer>
 		</dict>
 		<key>Scan</key>
 		<dict>
@@ -381,6 +384,8 @@
 			<key>Tool</key>
 			<false/>
 		</dict>
+		<key>ScreenResolution</key>
+		<string>1920x1080</string>
 		<key>Theme</key>
 		<string>SimpleThemeDark</string>
 	</dict>
@@ -398,8 +403,10 @@
 			<key>Intel</key>
 			<true/>
 			<key>NVidia</key>
-			<false/>
+			<true/>
 		</dict>
+		<key>NvidiaGeneric</key>
+		<false/>
 		<key>ig-platform-id</key>
 		<string>0x591b0000</string>
 	</dict>
@@ -412,7 +419,6 @@
 		<key>ForceKextsToLoad</key>
 		<array>
 			<string>\System\Library\Extensions\IONetworkingFamily.kext</string>
-			<string>\System\Library\Extensions\AppleIntelKBLGraphicsFramebuffer.kext</string>
 		</array>
 		<key>KernelLapic</key>
 		<false/>
@@ -438,7 +444,7 @@
 				<key>Comment</key>
 				<string>Disable panic kext logging on 10.13 Debug kernel</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				sABMi1Xw
@@ -454,7 +460,7 @@
 				<key>Comment</key>
 				<string>Disable panic kext logging on 10.13 Release kernel</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				igKEwHRE
@@ -470,7 +476,7 @@
 				<key>Comment</key>
 				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				AAAIAAIAAACYAAAA
@@ -483,6 +489,42 @@
 		</array>
 		<key>KextsToPatch</key>
 		<array>
+			<dict>
+				<key>Comment</key>
+				<string>change F%uT%04x to F%uTxxxx for AppleBacklightInjector.kext (credit RehabMan)</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				RiV1VCUwNHgA
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>Name</key>
+				<string>com.apple.driver.AppleBacklight</string>
+				<key>Replace</key>
+				<data>
+				RiV1VHh4eHgA
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>8750H black screen patch</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				AAAIAAIAAACYAAAA
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
+				<key>Replace</key>
+				<data>
+				AAAIAAIAAACHAQAA
+				</data>
+			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>0x591b0000, 32MB BIOS, 19MB framebuffer 9MB cursor bytes (credit RehabMan)</string>
@@ -561,24 +603,6 @@
 				AAAA
 				</data>
 			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>8750h黑屏补丁</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				AAAIAAIAAACYAAAA
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				AAAIAAIAAACHAQAA
-				</data>
-			</dict>
 		</array>
 	</dict>
 	<key>RtVariables</key>
@@ -592,19 +616,27 @@
 	<dict>
 		<key>BiosVersion</key>
 		<string>IM142.88Z.0123.B00.1708211454</string>
+		<key>BoardSerialNumber</key>
+		<string>C02727902GUDM66AD</string>
 		<key>ProductName</key>
-		<string>iMac14,2</string>
+		<string>iMac18,3</string>
 		<key>SerialNumber</key>
-		<string>C02PNURQFLHH</string>
+		<string>C02V10EEJ1GJ</string>
+		<key>SmUUID</key>
+		<string>F07EAE29-A364-4939-BAF8-7D70F3127706</string>
 		<key>Trust</key>
 		<false/>
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
-		<key>BacklightLevel</key>
-		<string>0xaaaa</string>
+		<key>CustomUUID</key>
+		<string>0C6D8AC8-BD3A-5A1E-8003-371D17D3E8CE</string>
 		<key>InjectKexts</key>
 		<string>Yes</string>
+		<key>InjectSystemID</key>
+		<true/>
+		<key>NvidiaWeb</key>
+		<true/>
 	</dict>
 </dict>
 </plist>
