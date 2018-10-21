@@ -5,14 +5,14 @@
 > CPU：Intel（R） Core(TM) i7-8750H CPU @ 2.2GHz
 >
 > 显卡： 
->     1 Intel(R) UHD Graphics 630 1G，  
->     2 NVIDIA GeForce GTX 1060 6G
+> ​    1 Intel(R) UHD Graphics 630 1G，  
+> ​    2 NVIDIA GeForce GTX 1060 6G
 >
 > 声卡：Realtek ALC236 @ Intel Cannon Lake PCH - cAVS (Audio, Voice, Speech)	 
 >
 > 网卡：
->     1 品牌 Realtek Semiconductor Corp，名称 Realtek RTL8822BE Wireless LAN 802.11ac PCI-E Network Adapter	PCI    
->     2 品牌 Realtek ， 名称 Realtek RTL8168/8111 PCI-E Gigabit Ethernet Adapter	PCI
+> ​    1 品牌 Realtek Semiconductor Corp，名称 Realtek RTL8822BE Wireless LAN 802.11ac PCI-E Network Adapter	PCI    
+> ​    2 品牌 Realtek ， 名称 Realtek RTL8168/8111 PCI-E Gigabit Ethernet Adapter	PCI
 >
 > 主硬盘：名称 RPFTJ128PDD2EWX ，接口类型 PCI-E ，119GB
 >
@@ -31,63 +31,43 @@
   + [大神整理的各种机型的EFI](https://github.com/sqlsec/clover)
   + [关于Clover里的 .plist 文件配置说明](https://clover-wiki.zetam.org/zh-CN/Configuration#Config.plist-%E7%BB%93%E6%9E%84)
 
-### 核显Uhd630没有识别
+### 说明
 
-- 回答1
+ 由于发现有部分人想采纳我的EFI，却出现各种问题，所以我在此对如何试用它做一下简略的说明，相信能找到这里的人，对于黑苹果的安装和配置，基本都不是小白了。所以我就不对如何配置它做详细说明，只做简单阐述了。
 
-  那就是你还需要lilu.kext。另外我看到你使用i5-8400而不是i3。您甚至不应该按照这个来获得图形加速，虽然它是一个选项，只需在kexts / Other中使用FAKEPCIID.kext + FakePCIID_Intel_HD_Graphics.kext + IntelGraphicsFixup.kext + Lilu.kext 然后将ig-platform-id设置为0x59120000 ，FakeID-> IntelGFX 0x59128086，加-disablegfxfirmware bootflag允许Kaby湖iGPU的引导+取决于你的主板可能需要AptioMemoryFix.efi在drivers64UEFI文件夹中。  或者即使删除了FakePCIID kexts并且将ig-platform-id和IntelGFX留空，你仍然可以获得加速，因为（U）HD 630本机支持已经完成。  如果在此之后你仍然无法启动/加速你的问题是别的 
+#### 1. 笔记本哪些功能可用？
 
-- 回答2
+**以下功能已经成功驱动**
 
-  嗨Hackintosher，谢谢你的回复。我在论坛的某个地方读到了核心i5 8400的iGPU UHD630由High Sierra本机支持。我已经使用unibeast准备了usb密钥，并且只在kext额外文件夹中保留了fakesmc并完成了安装。只有改变我必须在主板上禁用secureboot并启用AHCI。  我现在不在家。我将根据上述建议进行更改并与您分享结果。  请告诉我哪个SMBIOS设置14,2 18,1,18,2等适合我当前的配置。  让我尝试一下我身边的所有排列和组合，检查它是否有效。
+- 显卡（核显UHD630）
 
-### 引导黑屏问题
+  显卡驱动目前有点小问题，就是第一次开机会黑屏，需要启动两次到三次才能正常亮屏，目前还没有找到解决方法，如果有热心好友找到了，请分享一下，万分感谢~~
 
-- 引导进入安装界面黑屏，需要用手电筒照着才能看到苹果图标
+- 声卡（ALC236）
 
-  + 回答1
+- 网卡（RealtekRTL8111）
 
-    ```
-    Name: com.apple.driver.AppleIntelKBLGraphicsFramebuffer
-    Find: 00000800 02000000 98000000 02040A00 00080000 87010000 03060A00 00040000 87010000 FF000000 01000000 20000000
-    Replace: 00000800 00040000 87010000 FF000000 01000000 20000000 FF000000 01000000 20000000 FF000000 01000000 20000000
-    Comment: Modify 0x591B0000 video ports to match 15W (port 0 to eDP, ports1-3 non existents)
-    ```
+- 电源管理
 
-    [原文链接](https://www.tonymacx86.com/threads/help-black-screen-when-uhd630-run-with-internal-screen.250577/page-5#post-1762999)
+- usb3.0
 
-  + 回答2
+#### 2. 如何使用本EFI？
 
-    [参考链接](https://blog.daliansky.net/macOS-10.13-installation-of-common-problems-and-solutions.html?utm_source=com.tencent.tim&utm_medium=social&utm_oi=859884932347080704&tdsourcetag=s_pctim_aiomsg)
+- **这个EFI仅适用于联想拯救者Y7000的机型，如果机型不一样或者配置不同造成不好的后果，概不负责**
+- 这个EFI目前分有四个分支：`master`，`driver`，`macOs10.14`，`lenovoY50-70`
+  + `master`分支算是比较稳定的分支，不出意外，这个分支一般可以直接用于安装和使用（**适用于10.13.6(17G2112)**）。在安装时可以选择`config_install.plist`这个配置来进行，在安装好后就使用默认配置`config.plist`，您可能还看到很多奇怪的配置，如V1、V2这些，可以忽略不用管，都是本人配置时做备份留下的。
+  + `drver`分支是驱动调试分支，稳定性可能没那么好，甚至使用它还可能无法启动，不建议使用，除非有人指导。
+  + `macOs10.14`这个分支是用于安装启动`10.14`的mac系统，目前还不能使用，如果大家已经配置好了，希望能够分享给我，非常感谢~~~
+  + `lenovoY50-70`是可以用于比较老的`联想Y50`的笔记本，如果您有这台机器，那就有福了。
 
-    软件设置如下：
+#### 3. 如何切换分支？
 
-    ```
-    Comment	8750h黑屏补丁
-    Find	00000800 02000000 98000000
-    Name	com.apple.driver.AppleIntelKBLGraphicsFramebuffer
-    Replace	00000800 02000000 87010000
-    ```
+- 需要本地环境安装了git版本控制，[下载地址](https://git-scm.com/downloads)。
 
-    改文件：在`<key>KextsToPatch</key>  `标签下的`<array>  `中添加下面的配置
+- 先在对应的`EFI`文件目录下右击，找到`Git Bash Here`，进入Bash命令界面。
 
-    ```
-    <dict>
-        <key>Comment</key>
-        <string>8750h黑屏补丁</string>
-        <key>Disabled</key>
-        <false/>
-        <key>Find</key>
-        <data>
-        AAAIAAIAAACYAAAA
-        </data>
-        <key>InfoPlistPatch</key>
-        <false/>
-        <key>Name</key>
-        <string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
-        <key>Replace</key>
-        <data>
-        AAAIAAIAAACHAQAA
-        </data>
-    </dict>
-    ```
+![](http://ww1.sinaimg.cn/large/e8450fe4gy1fwg8koct80j208v0e3dgc.jpg)
+
+- 如下图，图中的蓝色字体`master`代表的是当前分支，如果想要切换另一个分支，则可以输入`git checkout driver`就可以切换到`driver`分支，想切回master分支，就用`git checkout master`，同理，其他分支也一样，如果想看一共有多少分支可以使用`git branch`，标了`*`符号的分支则是当前分支。
+
+  ![](http://ww1.sinaimg.cn/large/e8450fe4gy1fwg8tzflqnj20fb07074k.jpg)
