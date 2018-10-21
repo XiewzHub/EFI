@@ -26,7 +26,7 @@
 
 - 推荐网址
 
-  + [国外论坛tonymacx86](www.tonymacx86.com)
+  + [国外论坛tonymacx86](https://www.tonymacx86.com)
   + [安装系统参考网址](https://osx.cx/macos-high-sierra-10-13-xhackintosh-installation-tutorial.html)
   + [大神整理的各种机型的EFI](https://github.com/sqlsec/clover)
   + [关于Clover里的 .plist 文件配置说明](https://clover-wiki.zetam.org/zh-CN/Configuration#Config.plist-%E7%BB%93%E6%9E%84)
