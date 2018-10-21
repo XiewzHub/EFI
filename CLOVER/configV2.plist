@@ -18,6 +18,8 @@
 				<false/>
 				<key>Comment-IRQ Fix</key>
 				<string>The following fixes may be needed for onboard audio/USB/etc</string>
+				<key>FixDisplay</key>
+				<false/>
 				<key>FixHDA</key>
 				<false/>
 				<key>FixHPET</key>
@@ -28,6 +30,8 @@
 				<false/>
 				<key>FixTMR</key>
 				<false/>
+				<key>FixUSB</key>
+				<true/>
 			</dict>
 			<key>Patches</key>
 			<array>
@@ -161,7 +165,7 @@
 					<key>Comment</key>
 					<string>change GFX0 to IGPU</string>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>
 					R0ZYMA==
@@ -244,7 +248,7 @@
 		<key>#DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>Arguments</key>
-		<string>dart=0 -v nvda_drv=1 -lilubetaall debug=0x100 -disablegfxfirmware kext-dev-mode=1</string>
+		<string>debug=0x100 -lilubetaall -v -igfxbeta</string>
 		<key>HibernationFixup</key>
 		<false/>
 		<key>NeverHibernate</key>
@@ -253,6 +257,19 @@
 		<false/>
 		<key>Timeout</key>
 		<integer>4</integer>
+	</dict>
+	<key>CPU</key>
+	<dict>
+		<key>BusSpeedkHz</key>
+		<integer>98760</integer>
+		<key>C6</key>
+		<true/>
+		<key>FrequencyMHz</key>
+		<integer>2200</integer>
+		<key>QPI</key>
+		<integer>80000</integer>
+		<key>TDP</key>
+		<integer>45</integer>
 	</dict>
 	<key>Comment</key>
 	<string>This file is for 10.12.6+ with native KabyLake support</string>
@@ -319,6 +336,8 @@
 			<string>To avoid automatic Clover fake device-id (Skylake) injection</string>
 			<key>IntelGFX</key>
 			<string>0x59168086</string>
+			<key>NVidia</key>
+			<string>0x59120003</string>
 		</dict>
 		<key>USB</key>
 		<dict>
@@ -345,6 +364,8 @@
 			<string>Preboot</string>
 			<string>Recovery</string>
 		</array>
+		<key>Language</key>
+		<string>en:0</string>
 		<key>Mouse</key>
 		<dict>
 			<key>DoubleClick</key>
@@ -361,7 +382,7 @@
 			<key>Linux</key>
 			<false/>
 			<key>Tool</key>
-			<true/>
+			<false/>
 		</dict>
 		<key>ScreenResolution</key>
 		<string>1920x1080</string>
@@ -382,7 +403,7 @@
 			<key>Intel</key>
 			<true/>
 			<key>NVidia</key>
-			<false/>
+			<true/>
 		</dict>
 		<key>NvidiaGeneric</key>
 		<false/>
@@ -398,7 +419,6 @@
 		<key>ForceKextsToLoad</key>
 		<array>
 			<string>\System\Library\Extensions\IONetworkingFamily.kext</string>
-			<string>\System\Library\Extensions\AppleIntelKBLGraphicsFramebuffer.kext</string>
 		</array>
 		<key>KernelLapic</key>
 		<false/>
@@ -424,7 +444,7 @@
 				<key>Comment</key>
 				<string>Disable panic kext logging on 10.13 Debug kernel</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				sABMi1Xw
@@ -440,7 +460,7 @@
 				<key>Comment</key>
 				<string>Disable panic kext logging on 10.13 Release kernel</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				igKEwHRE
@@ -456,7 +476,7 @@
 				<key>Comment</key>
 				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				AAAIAAIAAACYAAAA
@@ -491,7 +511,7 @@
 				<key>Comment</key>
 				<string>8750H black screen patch</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				AAAIAAIAAACYAAAA
@@ -597,7 +617,7 @@
 		<key>BiosVersion</key>
 		<string>IM142.88Z.0123.B00.1708211454</string>
 		<key>ProductName</key>
-		<string>MacBookPro14,3</string>
+		<string>iMac18,3</string>
 		<key>SerialNumber</key>
 		<string>C02PNURQFLHH</string>
 		<key>Trust</key>
