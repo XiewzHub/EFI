@@ -19,9 +19,11 @@
 - 使用镜像
 
 
-  macOS Mojave 10.14(18A389) Installer with Clover 4670.dmg [点击下载](https://mirrors.dtops.cc/iso/MacOS/daliansky_macos/macOS%20Mojave%2010.14%2818A389%29%20Installer%20with%20Clover%204670.dmg)
+  macOS Mojave 10.14(18A391) Installer with Clover 4674.dmg    [点击下载](https://mirrors.dtops.cc/iso/MacOS/daliansky_macos/macOS%20Mojave%2010.14%2818A391%29%20Installer%20with%20Clover%204674.dmg)
 
-  参考文章 黑果小兵关于10.14系统安装教程[链接地址](https://blog.daliansky.net/macOS-Mojave-10.14-18A389-Release-with-Clover-4670-original-mirror.html)
+  更多下载[点击](https://mirrors.dtops.cc/iso/MacOS/daliansky_macos/)
+
+  参考文章 黑果小兵关于10.14系统安装教程[链接地址](https://blog.daliansky.net/macOS-Mojave-10.14-18A391-official-version-with-Clover-4674-original-image.html)
 
 - 推荐网址
 
@@ -29,3 +31,39 @@
   - [安装系统参考网址](https://osx.cx/macos-high-sierra-10-13-xhackintosh-installation-tutorial.html)
   - [大神整理的各种机型的EFI](https://github.com/sqlsec/clover)
   - [关于Clover里的 .plist 文件配置说明](https://clover-wiki.zetam.org/zh-CN/Configuration#Config.plist-%E7%BB%93%E6%9E%84)
+
+## 感谢
+
+感谢@**Mustard404** 提供的`Mojave 10.14`的安装`clover`，此处提供[下载](https://github.com/hnie-xwz/EFI/files/2513551/EFI.zip)，或者在[issue](https://github.com/hnie-xwz/EFI/issues/7)中找到并下载。
+
+## 如何使用与安装
+
+- 1 选择并切换到`macOs10.14`分支
+
+  ![mark](http://ph31ipolx.bkt.clouddn.com/blog/181029/B8eHHI4JhH.png)
+
+- 2 下载EFI
+
+  ![mark](http://ph31ipolx.bkt.clouddn.com/blog/181029/4im272ED4j.png)
+
+- 3 替换`clover`
+
+  找到U盘或者硬盘的`clover`，右击点`强制删除`，然后把需要替换的`clover`拖入即可。
+
+  ![mark](http://ph31ipolx.bkt.clouddn.com/blog/181029/K0FLjjFa8J.png)
+
+- 4 进入clover引导界面后，不要先急着安装，先进入显卡配置，把`ig-platform-id`设置为`0x12345678`，方便安装；以免安装时黑屏，安装过程会重启几次，记得每次都进去改一下。
+
+## 说明
+
+由于此次升级后，原版声卡删除了很多`layout-id`，很不幸，联想Y7000的可用id也被删除了，导致原来的仿冒驱动无法正常使用，因此需要重新仿冒声卡`AppleALC`，我预计本周末会对声卡进行仿冒，因为最近没多少时间去弄，大家见谅。大家也可以暂时使用`万能声卡`暂时应急。
+
+- 1 不要随便替换`Lilu.kext`和`WhateverGreen.kext`
+
+  因为显卡驱动使用的不是官方建议的版本，但是这个显卡可以调亮度，需要在启动参数中加入`igxfcflbklt=force`，对于8代CPU的支持很好。
+
+
+
+
+
+**未完待续。。。**
