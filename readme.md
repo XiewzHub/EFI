@@ -34,9 +34,9 @@
 
 ## 感谢
 
-- 感谢**@Mustard404** 提供的`Mojave 10.14`的安装`clover`，此处提供[下载](https://github.com/hnie-xwz/EFI/files/2513551/EFI.zip)，或者在[issue](https://github.com/hnie-xwz/EFI/issues/7)中找到并下载。
+- 感谢@Mustard404 提供的`Mojave 10.14`的安装`clover`，此处提供[下载](https://github.com/hnie-xwz/EFI/files/2513551/EFI.zip)，或者在[issue](https://github.com/hnie-xwz/EFI/issues/7)中找到并下载。
 
-- 感谢**@daliansky**制作出能驱动`macOS Mojave10.14 with Y7000`声卡驱动的EFI，支持原作者[地址链接](https://github.com/daliansky/Lenovo-Y7000-hackintosh)，声卡驱动注入`layout-id=3`
+- 感谢@daliansky制作出能驱动`macOS Mojave10.14 with Y7000`声卡驱动的EFI，支持原作者[地址链接](https://github.com/daliansky/Lenovo-Y7000-hackintosh)，声卡驱动注入`layout-id=3`
 
 
 
