@@ -42,17 +42,55 @@
 
 ## 驱动情况
 
-本人测试使用版本为：`macOS Mojave 10.14(18A391)` ，图片后续跟上。
+本人测试使用版本为：`macOS Mojave 10.14(18A391)` ，目前**基本完美**，图片后续跟上。
 
 - [x] 显卡(UHD630)正常，笔记本无法驱动独显
+
 - [x] 网卡正常（只能驱动有线网卡`8111`，无线网卡不能驱动）
+
 - [x] USB3.0正常
+
 - [x] 亮度调节正常
+
+  - **亮度调节设置快捷键调节**
+
+    1. 打开偏好设置，选键盘
+
+       ![mark](http://ph31ipolx.bkt.clouddn.com/blog/181104/gfb073C9GJ.png)
+
+    2. 选择`快捷键`->`显示器`，双击右侧的`F*`设置自己想要设置的快捷键。
+
+       ![mark](http://ph31ipolx.bkt.clouddn.com/blog/181104/i55a5AaaFH.png)
+
+    3. 效果
+
+       ![mark](http://ph31ipolx.bkt.clouddn.com/blog/181104/4keeAf7dHk.png)
+
+       ![mark](http://ph31ipolx.bkt.clouddn.com/blog/181104/hCb2ELGjFG.png)
+
 - [x] 睡眠正常
+
 - [x] 声卡alc236需要~~重新仿冒~~（ALC236驱动成功，id=3）
+
 - [ ] 键盘小键盘无法使用，只能当功能键用，如`音乐播放`，其他正常
+
 - [ ] 触摸板无法使用，没反应，暂时没有去管他
+
 - [ ] 外接显示器，**未测试**，希望大家帮忙试试
+
+## 设置
+
+- 关于双系统下，macOS Mojave系统与Windows系统**时间不一致**的问题
+
+  1. 打开时间设置
+
+  ![mark](http://ph31ipolx.bkt.clouddn.com/blog/181104/8AKIdF2mKB.jpg)
+
+  2. 打开鉴定设置，输入用户密码
+     ![mark](http://ph31ipolx.bkt.clouddn.com/blog/181104/BGheD9iJL7.jpg)
+  3. 选择时区，设置为中国北京或天津
+     ![mark](http://ph31ipolx.bkt.clouddn.com/blog/181104/liKEbmddai.jpg)
+
 
 ## 如何使用与安装
 
