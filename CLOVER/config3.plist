@@ -345,6 +345,8 @@
 		<dict>
 			<key>AFGLowPowerState</key>
 			<false/>
+			<key>Inject</key>
+			<integer>3</integer>
 			<key>ResetHDA</key>
 			<false/>
 		</dict>
