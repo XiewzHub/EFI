@@ -95,6 +95,8 @@
 				<false/>
 				<key>AddPNLF</key>
 				<true/>
+				<key>FixHDA</key>
+				<false/>
 				<key>FixRegions</key>
 				<false/>
 				<key>FixShutdown</key>
@@ -437,6 +439,8 @@
 		<string>Theme</string>
 		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
+		<key>HibernationFixup</key>
+		<false/>
 		<key>Legacy</key>
 		<string>LegacyBiosDefault</string>
 		<key>Log</key>
@@ -507,6 +511,11 @@
 				</data>
 			</dict>
 		</array>
+		<key>Audio</key>
+		<dict>
+			<key>ResetHDA</key>
+			<false/>
+		</dict>
 		<key>FakeID</key>
 		<dict>
 			<key>#Kaby Lake-Comment</key>
