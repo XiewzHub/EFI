@@ -122,7 +122,10 @@
 
 - 3 亮度调节不能使用快捷键，~~只能手动进入显示器设置中调节~~--更改设置中的快捷键可以实现手动调节亮度
 
+## 实用软件
 
+- mac下挂载EFI分区的实用软件，clover无法挂载的，也可以实用它挂载成功。`ESP Mounter Pro.app_v1.9.1.zip`[下载](http://ph31ipolx.bkt.clouddn.com/ESP%20Mounter%20Pro.app_v1.9.1.zip)
+- 黑苹果显卡，usb，声卡等驱动配置软件`FBPatcher.zip`[下载](http://ph31ipolx.bkt.clouddn.com/FBPatcher.zip)
 
 
 
