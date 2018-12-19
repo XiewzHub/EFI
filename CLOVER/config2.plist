@@ -437,14 +437,12 @@
 		<string> igxfcflbklt=force -cdfon -lilubetaall</string>
 		<key>CustomLogo</key>
 		<string>Theme</string>
-		<key>DefaultLoader</key>
-		<string>boot.efi</string>
 		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>HibernationFixup</key>
 		<false/>
 		<key>Legacy</key>
-		<string>PBR</string>
+		<string>LegacyBiosDefault</string>
 		<key>Log</key>
 		<false/>
 		<key>NeverHibernate</key>
@@ -456,7 +454,7 @@
 		<key>Timeout</key>
 		<integer>2</integer>
 		<key>XMPDetection</key>
-		<false/>
+		<string>Yes</string>
 	</dict>
 	<key>CPU</key>
 	<dict>
@@ -656,6 +654,8 @@
 			<key>Entries</key>
 			<true/>
 			<key>Legacy</key>
+			<false/>
+			<key>Linux</key>
 			<false/>
 			<key>Tool</key>
 			<true/>
