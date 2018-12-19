@@ -32,6 +32,10 @@
   - [大神整理的各种机型的EFI](https://github.com/sqlsec/clover)
   - [关于Clover里的 .plist 文件配置说明](https://clover-wiki.zetam.org/zh-CN/Configuration#Config.plist-%E7%BB%93%E6%9E%84)
 
+## 更新
+
+2018-12-19：感谢@[arigatouzq](https://github.com/arigatouzq)提出的几个问题点，已经修复了找不到电池的问题。
+
 ## 感谢
 
 - 感谢@Mustard404 提供的`Mojave 10.14`的安装`clover`，此处提供[下载](https://github.com/hnie-xwz/EFI/files/2513551/EFI.zip)，或者在[issue](https://github.com/hnie-xwz/EFI/issues/7)中找到并下载。
