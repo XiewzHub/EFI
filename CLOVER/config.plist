@@ -97,6 +97,8 @@
 				<true/>
 				<key>FixHDA</key>
 				<false/>
+				<key>FixHPET</key>
+				<true/>
 				<key>FixRegions</key>
 				<false/>
 				<key>FixShutdown</key>
@@ -440,7 +442,7 @@
 		<key>DefaultLoader</key>
 		<string>boot.efi</string>
 		<key>DefaultVolume</key>
-		<string>LastBootedVolume</string>
+		<string>MacOs13_6</string>
 		<key>HibernationFixup</key>
 		<false/>
 		<key>Legacy</key>
@@ -448,15 +450,15 @@
 		<key>Log</key>
 		<false/>
 		<key>NeverHibernate</key>
-		<true/>
-		<key>NoEarlyProgress</key>
 		<false/>
+		<key>NoEarlyProgress</key>
+		<true/>
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
 		<integer>2</integer>
 		<key>XMPDetection</key>
-		<false/>
+		<string>Yes</string>
 	</dict>
 	<key>CPU</key>
 	<dict>
@@ -609,7 +611,7 @@
 			<key>FixOwnership</key>
 			<true/>
 			<key>HighCurrent</key>
-			<true/>
+			<false/>
 			<key>Inject</key>
 			<true/>
 		</dict>
@@ -661,7 +663,7 @@
 			<true/>
 		</dict>
 		<key>Theme</key>
-		<string>SimpleThemeDark</string>
+		<string>Mojave</string>
 	</dict>
 	<key>Graphics</key>
 	<dict>
@@ -688,48 +690,12 @@
 		<false/>
 		<key>DellSMBIOSPatch</key>
 		<false/>
-		<key>ForceKextsToLoad</key>
-		<array>
-			<string>\System\Library\Extensions\IONetworkingFamily.kext</string>
-		</array>
 		<key>KernelLapic</key>
 		<true/>
 		<key>KernelPm</key>
 		<true/>
 		<key>KernelToPatch</key>
 		<array>
-			<dict>
-				<key>Comment</key>
-				<string>Disable panic kext logging on 10.13 Debug kernel</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				sABMi1Xw
-				</data>
-				<key>MatchOS</key>
-				<string>10.13</string>
-				<key>Replace</key>
-				<data>
-				SIPEQF3D
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Disable panic kext logging on 10.13 Release kernel</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				igKEwHRE
-				</data>
-				<key>MatchOS</key>
-				<string>10.13</string>
-				<key>Replace</key>
-				<data>
-				igKEwOtE
-				</data>
-			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>Disable panic kext logging on 10.14 Release kernel (c) vit9696</string>
@@ -769,7 +735,7 @@
 				<key>Comment</key>
 				<string>10.13.x USB Port Limit Patch</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				g32IDw+DlwQA
@@ -809,7 +775,7 @@
 				<key>Comment</key>
 				<string>disable USB Port Limit Patch (PMheart) for 10.14 beta2</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				g/sPD4MDBQAA
@@ -829,7 +795,7 @@
 				<key>Comment</key>
 				<string>USB Port limit patch 10.14.1 18B50C (credits DalianSky)</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				g/sPD4OPBAAA
