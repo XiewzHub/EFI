@@ -19,11 +19,9 @@
 - 使用镜像
 
 
-  macOS Mojave 10.14(18A391) Installer with Clover 4674.dmg    [点击下载](https://mirrors.dtops.cc/iso/MacOS/daliansky_macos/macOS%20Mojave%2010.14%2818A391%29%20Installer%20with%20Clover%204674.dmg)
+  macOS Mojave 10.14.3(18D42) Installer with Clover 4859.dmg    [点击下载](https://blog.daliansky.net/macOS-Mojave-10.14.3-18D42-official-version-with-Clover-4859-original-image.html)
 
   更多下载[点击](https://mirrors.dtops.cc/iso/MacOS/daliansky_macos/)
-
-  参考文章 黑果小兵关于10.14系统安装教程[链接地址](https://blog.daliansky.net/macOS-Mojave-10.14-18A391-official-version-with-Clover-4674-original-image.html)
 
 - 推荐网址
 
@@ -33,6 +31,8 @@
   - [关于Clover里的 .plist 文件配置说明](https://clover-wiki.zetam.org/zh-CN/Configuration#Config.plist-%E7%BB%93%E6%9E%84)
 
 ## 更新
+
+2018-03-18：合并了@[xiaoMGitHub](https://github.com/xiaoMGitHub)的EFI，支持小键盘
 
 2018-12-19：感谢@[arigatouzq](https://github.com/arigatouzq)提出的几个问题点，已经修复了找不到电池的问题。
 
@@ -46,11 +46,13 @@
 
 ## 驱动情况
 
-本人测试使用版本为：`macOS Mojave 10.14(18A391)` ，目前**基本完美**，图片后续跟上。
+本人测试使用版本为：`macOS Mojave 10.14.3(18D42) ` ，目前**基本完美**，图片后续跟上。
 
 - [x] 显卡(UHD630)正常，笔记本无法驱动独显
 
-- [x] 网卡正常（只能驱动有线网卡`8111`，无线网卡不能驱动）
+- [x] 网卡正常（只能驱动有线网卡`8111`）
+
+- [x] 无线网卡使用`BCM94352z`（DW1560），能正常使用蓝牙、WiFi
 
 - [x] USB3.0正常
 
@@ -74,13 +76,13 @@
 
 - [x] 睡眠正常
 
-- [x] 声卡alc236需要~~重新仿冒~~（ALC236驱动成功，id=3）
+- [x] 声卡alc236需要（ALC236驱动成功，id=18），耳机杂音可以在声音设置中调节声道，或者使用修复补丁
 
-- [ ] 键盘小键盘无法使用，只能当功能键用，如`音乐播放`，其他正常
+- [x] 键盘小键盘正常使用
 
-- [ ] 触摸板无法使用，没反应，暂时没有去管他
+- [x] ELAN触摸板无法使用，新思触摸板可用
 
-- [ ] 外接显示器，**未测试**，希望大家帮忙试试
+- [x] 外接显示器hdmi接口不可用，可通过usb或者type-c转hdmi
 
 ## 设置
 
@@ -128,8 +130,9 @@
 
 ## 实用软件
 
-- mac下挂载EFI分区的实用软件，clover无法挂载的，也可以实用它挂载成功。`ESP Mounter Pro.app_v1.9.1.zip`[下载](http://ph31ipolx.bkt.clouddn.com/ESP%20Mounter%20Pro.app_v1.9.1.zip)
-- 黑苹果显卡，usb，声卡等驱动配置软件`FBPatcher.zip`[下载](http://ph31ipolx.bkt.clouddn.com/FBPatcher.zip)
+- mac下挂载EFI分区的实用软件，clover无法挂载的，也可以实用它挂载成功。`ESP Mounter Pro.app_v1.9.1.zip`链接：https://pan.baidu.com/s/1yR5KE4fhS5ddCpoIpq4AjQ  提取码：wyr4 
+- 想为其他电脑定制驱动，可以使用该软件：黑苹果显卡，usb，声卡等驱动定制软件`Hackintool.zip`链接：https://pan.baidu.com/s/1VFJw2k2WMjD6WhSFWWblyQ  提取码：2n4s 
+  
 
 
 
