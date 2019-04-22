@@ -82,7 +82,7 @@
 
 - [x] ELAN触摸板无法使用，新思触摸板可用
 
-- [x] 外接显示器hdmi接口不可用，可通过usb或者type-c转hdmi
+- [x] 外接显示器hdmi接口不可用，可通过usb转hdmi
 
 ## 设置
 
